@@ -1,0 +1,30 @@
+name: Update UseLatex Cmake module
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs at 00:00 on the first day of every month
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  sync_file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Fetch upstream
+      run: |
+        git remote add upstream https://gitlab.kitware.com/kmorel/UseLATEX.git/
+        git fetch upstream
+
+    - name: Sync file
+      run: |
+        git checkout upstream/main -- ./UseLATEX.cmake
+        
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: 'Update UseLATEX.cmake from upstream'
+        commit-message: 'action: update UseLATEX module from upstream'
+        branch: sync-uselatex-upstream
+        delete-branch: true

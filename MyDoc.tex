@@ -1,0 +1,37 @@
+\documentclass{article}
+
+% Package for handling bibliography
+\usepackage[style=authoryear,
+            backend=biber,
+            natbib=true,
+            maxcitenames=2,
+            mincitenames=1,
+            dashed=false,
+            isbn=false,
+            url=false,
+            eprint=false,
+            doi=false,
+            uniquelist=minyear % prevent issue for references of the same first author (even in different years)
+            ]{biblatex}\addbibresource{MyDoc.bib} % Include bibliography file
+
+\title{A Simple LaTeX Document with Bibliography}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This is a simple example of a LaTeX document. We are going to cite two sources from the bibliography below. As stated in~\cite{lamport1994}, LaTeX is a document preparation system commonly used for technical and scientific writing.
+
+\input{chapters/chapter1.tex} % Include the content from chapter1.tex
+
+\section{Conclusion}
+
+In conclusion, LaTeX makes it easy to handle references and citations. Both the book by Lamport~\cite{lamport1994} and the article by Knuth~\cite{knuth1984} are important works in the field.
+
+\printbibliography
+
+\end{document}

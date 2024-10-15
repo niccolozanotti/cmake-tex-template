@@ -15,6 +15,9 @@ build/
 *.cb2
 .*.lb
 
+## Ignore macOS config files
+*.DS_Store
+
 ## Intermediate documents:
 *.dvi
 *.xdv

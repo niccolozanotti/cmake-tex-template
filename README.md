@@ -30,7 +30,7 @@ pdfTeX 3.x.x
 ```
 If you get an error or LaTeX is not installed, check the [instructions below](#installing-latex).
 
-# Build the files
+## Build the files
 One way to quickly compile the `.tex` files into the relative `.pdf` is by running
 ```shell
 mkdir build
@@ -39,6 +39,8 @@ cmake ..
 make target-name 
 ```
 The `target-name.pdf` file will then be located in the `build/` directory.
+
+## Installation instructions 
 
 ### Installing LaTeX
 
